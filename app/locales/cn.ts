@@ -3,7 +3,7 @@ import { SubmitKey } from "../store/app";
 const cn = {
   WIP: "该功能仍在开发中……",
   Error: {
-    Unauthorized: "现在是未授权状态，请在设置页填写授权码。",
+    Unauthorized: "未授权使用，请联系微信： zen25885 获取授权码。",
   },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} 条对话`,

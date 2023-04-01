@@ -627,9 +627,9 @@ export function Home() {
         className={styles.sidebar + ` ${showSideBar && styles["sidebar-show"]}`}
       >
         <div className={styles["sidebar-header"]}>
-          <div className={styles["sidebar-title"]}>ChatGPT Next</div>
+          <div className={styles["sidebar-title"]}>智能AI</div>
           <div className={styles["sidebar-sub-title"]}>
-            Build your own AI assistant.
+            客服微信：zen25885
           </div>
           <div className={styles["sidebar-logo"]}>
             <ChatGptIcon />
@@ -666,11 +666,6 @@ export function Home() {
                   setShowSideBar(false);
                 }}
               />
-            </div>
-            <div className={styles["sidebar-action"]}>
-              <a href={REPO_URL} target="_blank">
-                <IconButton icon={<GithubIcon />} />
-              </a>
             </div>
           </div>
           <div>

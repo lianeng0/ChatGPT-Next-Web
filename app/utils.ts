@@ -1,19 +1,29 @@
+import { EmojiStyle } from "emoji-picker-react";
 import { showToast } from "./components/ui-lib";
 import Locale from "./locales";
 
 export function trimTopic(topic: string) {
-  return topic.replace(/[，。！？、,.!?]*$/, "");
+  return topic.replace(/[，。！？”“"、,.!?]*$/, "");
 }
 
-export function copyToClipboard(text: string) {
-  navigator.clipboard
-    .writeText(text)
-    .then((res) => {
+export async function copyToClipboard(text: string) {
+  try {
+    await navigator.clipboard.writeText(text);
+    showToast(Locale.Copy.Success);
+  } catch (error) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+      document.execCommand("copy");
       showToast(Locale.Copy.Success);
-    })
-    .catch((err) => {
+    } catch (error) {
       showToast(Locale.Copy.Failed);
-    });
+    }
+    document.body.removeChild(textArea);
+  }
 }
 
 export function downloadAs(text: string, filename: string) {
@@ -39,6 +49,12 @@ export function isIOS() {
 
 export function isMobileScreen() {
   return window.innerWidth <= 600;
+}
+
+export function isFirefox() {
+  return (
+    typeof navigator !== "undefined" && /firefox/i.test(navigator.userAgent)
+  );
 }
 
 export function selectOrCopy(el: HTMLElement, content: string) {
@@ -76,4 +92,8 @@ export function getCurrentVersion() {
   currentId = queryMeta("version");
 
   return currentId;
+}
+
+export function getEmojiUrl(unified: string, style: EmojiStyle) {
+  return `https://cdn.staticfile.org/emoji-datasource-apple/14.0.0/img/${style}/64/${unified}.png`;
 }

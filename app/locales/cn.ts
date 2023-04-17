@@ -3,7 +3,7 @@ import { SubmitKey } from "../store/app";
 const cn = {
   WIP: "该功能仍在开发中……",
   Error: {
-    Unauthorized: "需授权使用，请联系微信： zen25885 获取授权访问码。",
+    Unauthorized: "现在是未授权状态，请点击左下角设置按钮输入访问密码。获取访问密码，请联系微信： zen25885 ",
   },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} 条对话`,
@@ -17,6 +17,7 @@ const cn = {
       Copy: "复制",
       Stop: "停止",
       Retry: "重试",
+      Delete: "删除",
     },
     Rename: "重命名对话",
     Typing: "正在输入…",
@@ -72,6 +73,9 @@ const cn = {
         tw: "繁體中文",
         es: "Español",
         it: "Italiano",
+        tr: "Türkçe",
+        jp: "日本語",
+        de: "Deutsch",
       },
     },
     Avatar: "头像",
@@ -90,7 +94,7 @@ const cn = {
     },
     SendKey: "发送键",
     Theme: "主题",
-    TightBorder: "紧凑边框",
+    TightBorder: "无边框模式",
     SendPreviewBubble: "发送预览气泡",
     Prompt: {
       Disable: {
